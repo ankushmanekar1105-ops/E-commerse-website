@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Login.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Shop List</h1>
+            <ul class="main-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login/SingUp</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-div">
+        <h2 class="login">LogIn</h2>
+        <h2 class="singUp">SingUp</h2>
+
+        <form class="LogIn" action="submit">
+            <labe id="email-add" for="email"> Email: 
+                <input type="email" name="email" placeholder="Enter a Email/Mo.Number">
+            </label>
+            <br>
+            <label id="password" for="password">Password: 
+                <input type="password" name="password" placeholder="Password">
+            </label>
+            <br>
+            <button id="login" type="submit">Log In</button>
+
+        </form>
+        <template>
+            <form class="SingUp" action="submit">
+                <label id="name" for="name">Name: 
+                    <input type="text" placeholder="Enter a First Name">
+                </label>
+                <br> 
+                <label id="Number" for="Number"> Mo. Number: 
+                    <input type="number" placeholder="+91 xxxxxxxxxx">
+                </label>
+                <label id="email" for="Email">Email: 
+                    <input type="email" name="email" placeholder=".. @gmail.com">
+                </label>
+                <label id="setp-password" for="password">New Password:
+                    <input id="New-Password" type="password" placeholder="New Password">
+                </label>
+                <label id="comf-password" for="password">New Password:
+                    <input id="check-Password" type="password" placeholder="comform Password">
+                </label>
+                <button id="singUp" type="submit"></button>
+            </form>
+        </template>
+    </main>
+</body>
+</html>
