@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="../Style-Files/Login.css">
 </head>
+
 <body>
     <header>
         <nav class="navbar">
@@ -19,42 +21,86 @@
         </nav>
     </header>
     <main class="main-div">
-        <h2 class="login">LogIn</h2>
-        <h2 class="singUp">SingUp</h2>
 
-        <form class="LogIn" action="submit">
-            <labe id="email-add" for="email"> Email: 
-                <input type="email" name="email" placeholder="Enter a Email/Mo.Number">
-            </label>
-            <br>
-            <label id="password" for="password">Password: 
-                <input type="password" name="password" placeholder="Password">
-            </label>
-            <br>
-            <button id="login" type="submit">Log In</button>
-
-        </form>
-        <template>
-            <form class="SingUp" action="submit">
-                <label id="name" for="name">Name: 
-                    <input type="text" placeholder="Enter a First Name">
+        <button id="nev-login" type="button">
+            <h2>LogIn</h2>
+        </button>
+        <button id="nev-singUp" type="button">
+            <h2>SingUp</h2>
+        </button>
+        <div class="LogIn">
+            <formclass="LogIn" action="submit">
+                <labe id="email-add" for="email"> Email:
+                    <input type="email" name="email" placeholder="Enter a Email/Mo.Number" required>
                 </label>
-                <br> 
-                <label id="Number" for="Number"> Mo. Number: 
-                    <input type="number" placeholder="+91 xxxxxxxxxx">
+                <br>
+                <label id="password" for="password">Password:
+                    <input type="password" name="password" placeholder="Password" required>
                 </label>
-                <label id="email" for="Email">Email: 
-                    <input type="email" name="email" placeholder=".. @gmail.com">
-                </label>
-                <label id="setp-password" for="password">New Password:
-                    <input id="New-Password" type="password" placeholder="New Password">
-                </label>
-                <label id="comf-password" for="password">New Password:
-                    <input id="check-Password" type="password" placeholder="comform Password">
-                </label>
-                <button id="singUp" type="submit"></button>
+                <br>
+                <button id="login" type="submit">Log In</button>
+                <p id="result"></p>
+                <p>Do't have an Email Account <a
+                            href="https://accounts.google.com/lifecycle/steps/signup/name?dsh=S35154976:1774969938690621&flowEntry=SignUp&flowName=GlifWebSignIn&TL=AIgtPP0yZAwos7cQshXbyR27dtqXe3VDan6UfeSSSmRIMKSivXneanId7SBqXapX&continue=https://accounts.google.com/ManageAccount?nc%3D1"
+                            alt="google Account">Create Email</a> </p>
             </form>
+        </div>
+        
+
+        <template class="singup-template">
+            <form class="SingUp" action="submit">
+                <label id="name" for="name">Name:
+                    <input type="text" placeholder="Enter a First Name" required>
+                </label>
+                <br>
+                <label id="Number" for="Number"> Mo. Number:
+                    <input type="number" placeholder="+91 xxxxxxxxxx" required>
+                </label>
+                <br>
+                <label id="email" for="Email">Email:
+                    <input type="email" name="email" placeholder=".. @gmail.com" required>
+                </label>
+                <br>
+                <label id="setp-password" for="password">New Password:
+                    <input id="New-Password" type="password" placeholder="New Password" required>
+                </label>
+                <br>
+                <label id="comf-password" for="password">New Password:
+                    <input id="check-Password" type="password" placeholder="comform Password" required>
+                </label>
+                <br>
+                <button id="singUp" type="submit">Sing Up</button>
+                <p id="result"></p>
+               
+
+            </form>
+            
         </template>
+        
+        <div id="appand-temp"></div>
+
+        <section class="logo">
+            <img src="https://tse1.mm.bing.net/th/id/OIP.AfKMLf4rKX7EqOSAVpujIQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3"
+                height="25px" alt="google">
+            <img src="https://mydmi.imgix.net/Twitter_-_Card.png?crop=edges&fit=crop&fm=jpg&h=1260&ixlib=php-3.3.1&q=40&w=2400&s=7ff264df47f85886efea1e09f2b48b12"
+                height="25px" alt="x">
+            <img src="https://static.vecteezy.com/system/resources/previews/021/495/960/large_2x/facebook-logo-icon-free-png.png"
+                height="30px" alt="feacebook">
+        </section>
     </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <p>© 2026 YourBrand. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy,</a>
+                <a href="#">Terms,</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+    </footer>
+    <script src="Script-Files/Login.js"></script>
 </body>
+
+
 </html>
