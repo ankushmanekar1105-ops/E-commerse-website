@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>E-Commerce Website</title>
     <link rel="stylesheet" href="../Style-Files/Login.css">
 </head>
 
@@ -12,6 +12,7 @@
     <header>
         <nav class="navbar">
             <h1>Shop List</h1>
+            <input id="search" type="text" placeholder="search" block>
             <ul class="main-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
@@ -20,17 +21,21 @@
             </ul>
         </nav>
     </header>
+
     <main class="main-div">
 
-        <button id="nev-login" type="button">
-            <h2>LogIn</h2>
-        </button>
-        <button id="nev-singUp" type="button">
-            <h2>SingUp</h2>
-        </button>
+        <div class="change">
+            <button id="nev-login" type="button">
+                <h2>LogIn</h2>
+            </button>
+            <button id="nev-singUp" type="button">
+                <h2>SingUp</h2>
+            </button>
+        </div>
+
         <div class="LogIn">
-            <formclass="LogIn" action="submit">
-                <labe id="email-add" for="email"> Email:
+            <form class="LogIn" action="submit">
+                <label id="email-add" for="email"> Email:
                     <input type="email" name="email" placeholder="Enter a Email/Mo.Number" required>
                 </label>
                 <br>
@@ -50,7 +55,7 @@
         <template class="singup-template">
             <form class="SingUp" action="submit">
                 <label id="name" for="name">Name:
-                    <input type="text" placeholder="Enter a First Name" required>
+                    <input type="text" placeholder="Enter Your Name" required>
                 </label>
                 <br>
                 <label id="Number" for="Number"> Mo. Number:
@@ -93,8 +98,8 @@
         <div class="footer-container">
             <p>© 2026 YourBrand. All rights reserved.</p>
             <div class="footer-links">
-                <a href="#">Privacy Policy,</a>
-                <a href="#">Terms,</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
                 <a href="#">Help</a>
             </div>
         </div>

@@ -26,7 +26,7 @@ const result = document.querySelector("#result");
 const  logEmail= document.querySelector("#email-add input");
 const logPass = document.querySelector("#password input");
 
-const loginvalidation = async () => {
+const loginvalidation = async (e) => {
     const logeint = logEmail.value;
     const logpint = logPass.value;
     let found = false;
@@ -38,6 +38,10 @@ const loginvalidation = async () => {
            found = true;
            break;
         }
+        // else if (logeint <= 8){
+        //     result.textContent = ""
+        //     result.textContent = "write a currect Email"
+        // }
         };
         if (found) {
             result.textContent = "Login Sucssesful";
