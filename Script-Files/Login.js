@@ -5,13 +5,15 @@ const sing = document.querySelector("#nev-singUp");
 const temp = document.querySelector(".singup-template");
 const apptemp = document.getElementById("appand-temp");
 
-const clone = temp.content.cloneNode(true);
-
 sing.addEventListener("click", () => {
     login.style.display = "none";
+
+    const clone = temp.content.cloneNode(true);
+    apptemp.innerHTML = "";
     apptemp.appendChild(clone);
     apptemp.style.display = "block";
 })
+
 log.addEventListener("click", () => {
     login.style.display = "block";
     apptemp.style.display = "none";
@@ -23,37 +25,37 @@ const result = document.querySelector("#result");
 
 
 
-const  logEmail= document.querySelector("#email-add input");
+const logEmail = document.querySelector("#email-add input");
 const logPass = document.querySelector("#password input");
 
 const loginvalidation = async (e) => {
-    const logeint = logEmail.value;
-    const logpint = logPass.value;
+    e.preventDefault();
+    const logeint = logEmail.value.trim();
+    const logpint = logPass.value.trim();
+
+    if (!logeint || !logpint) {
+        result.textContent = "Please fill all fields";
+        return;
+    }
+
     let found = false;
     try {
         const response = await fetch(URL);
         const data = await response.json();
-        for(const element of data.users) {
-        if (logeint === element.email && logpint === element.password){
-           found = true;
-           break;
+        const user = data.users.find(
+            u => u.email === logeint && u.password === logpint
+        );
+
+        if (user) {
+            result.textContent = "Login Successful ✅";
+        } else {
+            result.textContent = "User not found ❌";
         }
-        // else if (logeint <= 8){
-        //     result.textContent = ""
-        //     result.textContent = "write a currect Email"
-        // }
-        };
-        if (found) {
-            result.textContent = "Login Sucssesful";
-        }
-        else {
-            result.textContent = "user not fount";
-        }
-        
+
     } catch (e) {
-        result.textContent = "error";
+        result.textContent = "Server error ⚠️";
     }
-    
+
 }
 logbutt.addEventListener("click", loginvalidation);
 
@@ -61,14 +63,44 @@ logbutt.addEventListener("click", loginvalidation);
 const singbutt = document.querySelector("#singUp");
 
 const singcompletion = (e) => {
-    const newPass = document.querySelector("#New-Password").value;
-    const comPass = document.querySelector("#check-Password").value;
-    const singEmail = document.querySelector("#email").value.length;
+    e.preventDefault();
+    const newPass = document.querySelector("#New-Password")?.value.trim();
+    const comPass = document.querySelector("#check-Password")?.value.trim();
+    const singEmail = document.querySelector("#email")?.value.trim();
 
-    if (newPass === comPass && singEmail > 8){
-        result.textContent = ""
-        result.textContent = "sing up compmpleted";
+    if (!singEmail || !newPass || !comPass) {
+        result.textContent = "Fill all fields";
+        return;
     }
+
+    if (singEmail.length <= 8) {
+        result.textContent = "Email too short";
+        return;
+    }
+
+    if (newPass !== comPass) {
+        result.textContent = "Passwords do not match";
+        return;
+    }
+
+    result.textContent = "Signup completed ✅";
 }
 
-singbutt.addEventListener("click", singcompletion);
+document.addEventListener("click", (e) => {
+    if (e.target && e.target.id === "singUp") {
+        singcompletion(e);
+    }
+});
+
+const toggle = document.querySelector(".toggle-btn");
+const secnav = document.querySelector(".lesst750")
+
+toggle.addEventListener("click", (e) => {
+    const secnavtemp = document.querySelector(".nav-template");
+    if (secnav.childElementCount === 0) {
+        const navclone = secnavtemp.content.cloneNode(true);
+        secnav.appendChild(navclone);
+    } else {
+        secnav.innerHTML = "";
+    }
+})

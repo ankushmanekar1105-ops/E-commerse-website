@@ -54,3 +54,24 @@
   background-position: 10px center;
   background-size: 16px;
 }
+
+.navbar:hover {
+  transition: 500ms;
+  border: 5px solid;
+}
+
+.navbar a:hover, h1:hover {
+  transition: 500ms;
+  transform: scale(1.1);
+  color: #0F172A;
+  text-shadow:
+    2px 2px 4px #1e3a8a,
+    -2px -2px 4px #60a5fa,
+    3px 3px 6px #000000;
+}
+
+.navbar input:hover {
+  transition: 600ms;
+  transform: scale(1.1);
+  border: 3px solid #CBD5E1;
+}

@@ -11,7 +11,10 @@
 <body>
     <header>
         <nav class="navbar">
-            <h1>Shop List</h1>
+            <div class="toggle">
+                <h1>Shop List</h1>
+                <button class="toggle-btn" type="button">☰</button>
+            </div>
             <input id="search" type="text" placeholder="search" block>
             <ul class="main-list">
                 <li><a href="index.html">Home</a></li>
@@ -20,6 +23,17 @@
                 <li><a href="login.html">Login/SingUp</a></li>
             </ul>
         </nav>
+
+        <div class="lesst750"></div>
+        
+        <template class="nav-template">
+            <ul class="second-main-list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login/SingUp</a></li>
+            </ul>
+        </template>
     </header>
 
     <main class="main-div">
@@ -46,11 +60,11 @@
                 <button id="login" type="submit">Log In</button>
                 <p id="result"></p>
                 <p>Do't have an Email Account <a
-                            href="https://accounts.google.com/lifecycle/steps/signup/name?dsh=S35154976:1774969938690621&flowEntry=SignUp&flowName=GlifWebSignIn&TL=AIgtPP0yZAwos7cQshXbyR27dtqXe3VDan6UfeSSSmRIMKSivXneanId7SBqXapX&continue=https://accounts.google.com/ManageAccount?nc%3D1"
-                            alt="google Account">Create Email</a> </p>
+                        href="https://accounts.google.com/lifecycle/steps/signup/name?dsh=S35154976:1774969938690621&flowEntry=SignUp&flowName=GlifWebSignIn&TL=AIgtPP0yZAwos7cQshXbyR27dtqXe3VDan6UfeSSSmRIMKSivXneanId7SBqXapX&continue=https://accounts.google.com/ManageAccount?nc%3D1"
+                        alt="google Account">Create Email</a> </p>
             </form>
         </div>
-        
+
 
         <template class="singup-template">
             <form class="SingUp" action="submit">
@@ -70,18 +84,18 @@
                     <input id="New-Password" type="password" placeholder="New Password" required>
                 </label>
                 <br>
-                <label id="comf-password" for="password">New Password:
-                    <input id="check-Password" type="password" placeholder="comform Password" required>
+                <label id="comf-password" for="password">Confirm Password:
+                    <input id="check-Password" type="password" placeholder="Confirm Password" required>
                 </label>
                 <br>
                 <button id="singUp" type="submit">Sing Up</button>
                 <p id="result"></p>
-               
+
 
             </form>
-            
+
         </template>
-        
+
         <div id="appand-temp"></div>
 
         <section class="logo">
