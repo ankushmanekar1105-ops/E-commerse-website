@@ -1,10 +1,11 @@
 const prod = document.querySelector(".lod-products");
+const catagirise = document.querySelector(".catagerise");
 
 const URL = "https://dummyjson.com/products";
 
-document.addEventListener("DOMContentLoaded", addprod);
+document.addEventListener("DOMContentLoaded", homepage);
 
-async function addprod() {
+async function homepage() {
     const respose = await fetch(URL);
     const item = await respose.json();
     console.log(item);
@@ -50,4 +51,23 @@ async function addprod() {
         count++
         if (count >= 10) break;
     }
+    // categorie();
+
 }
+
+// async function categorie() {
+//     const categories = ["beauty","furniture","groceries","home-decoration","laptops","mens-shoes"];
+    
+    
+    
+    
+//     for(i = 0; i <6 ; i++) {
+//         const template = document.querySelector(".categerise-template").content.cloneNode(true);
+//         const img = document.querySelector(".cateimg");
+//         const categerisetitle = document.querySelector(".catetitle");
+
+//         console.log(template);
+//         categerisetitle.innerHTML = categories[i];
+
+//     }
+// }

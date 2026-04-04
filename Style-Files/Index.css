@@ -6,6 +6,7 @@
 
 .navbar {
   width: 100vw;
+  height: 70px;
   position: relative;
   top: 0;
   left: 0;
@@ -172,6 +173,7 @@
   gap: 15px;
   border-radius: 8px;
   padding: 1em;
+  margin: 20px 10px;
 }
 
 .productcard img {
@@ -191,6 +193,87 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.cart button {
+  background-color: #fff;
+  border: none;
+  color: #0F172A;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  /* gap: 2rem; */
+  background-color: #f1f1f1;
+  margin: 0 15px;
+  border-radius: 10px;
+}
+
+.categerise-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 70px;
+}
+
+.categerise-card {
+  display: grid;
+  grid-template-rows: 1/2;
+  grid-template-columns: 1/2;
+}
+.data {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  text-align: center;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; */
+}
+
+.categerise-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.hero:hover {
+  transform: scale(1.05);
+  transition: 500ms;
+  border: 2px solid #8297b7;
+  box-shadow: 
+    2px 2px 4px #1e3a8a,
+    -2px -2px 4px #60a5fa,
+    3px 3px 6px #000000;;
+}
+
+.productcard:hover {
+  transform: scale(1.05);
+  transition: 500ms;
+  border: 2px solid #3b82f6;
+  box-shadow: 
+    2px 2px 4px #1e3a8a,
+    -2px -2px 4px #60a5fa,
+    3px 3px 6px #000000;;
+}
+
+.cart button:hover {
+  background-color: #3b82f6;
+  color: #fff;
+  transition: 300ms;
 }
 
 .navbar:hover {
@@ -224,6 +307,10 @@ h1:hover, button:hover {
     display: block;
   }
 
+  .hero h2 {
+    font-size: 1.5em;
+  }
+
 }
 
 @media (max-width: 480px) {
@@ -237,4 +324,7 @@ h1:hover, button:hover {
     font-size: medium;
   }
 
+  .hero h2 {
+    font-size: 1em;
+  }
 }
