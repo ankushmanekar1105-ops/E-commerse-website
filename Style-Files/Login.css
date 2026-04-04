@@ -27,6 +27,13 @@ body {
 
 }
 
+.toggle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: maxmin(10px, 2vw);
+}
+
 .toggle h1 {
   padding-right: 10px;
 }
@@ -291,4 +298,5 @@ form button:hover {
     padding: 10px;
     font-size: medium;
   }
+  
 }
