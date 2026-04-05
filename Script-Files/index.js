@@ -1,27 +1,68 @@
 const prod = document.querySelector(".lod-products");
 const catagirise = document.querySelector(".catagerise");
+const catagirihed = document.querySelector("#categorieshed");
+const res = document.querySelector(".categri-res");
+const catecont = document.querySelector(".categerise-container");
+const back = document.querySelector("#back-button");
+const cartitem = document.querySelector("#cart-count");
 
 const URL = "https://dummyjson.com/products";
 
+let isclick = false;
+
 document.addEventListener("DOMContentLoaded", homepage);
+catecont.addEventListener("click", (e) => {
+
+    const target = e.target.id
+    catagirihed.textContent = `Category: ${target}`
+    back.textContent = "Back";
+    back.style.display = "block";
+    isclick = true;
+
+    catecont.style.display = "none";
+    res.style.display = "grid";
+    res.innerHTML = "";
+    catagerise(target);
+
+})
+
+back.addEventListener("click", () => {
+    catecont.style.display = "grid";
+    res.style.display = "none";
+
+    back.style.display = "none";
+    catagirihed.textContent = "Categories";
+
+    isclick = false;
+});
 
 async function homepage() {
+
     const respose = await fetch(URL);
     const item = await respose.json();
-    console.log(item);
-    console.log(typeof item);
-    let count = 0;
 
-   for (const element of item.products) {
-       
+    apppandwork(item, 10, prod);
+
+}
+
+async function catagerise(catigeor) {
+    const categeriresponse = await fetch(`https://dummyjson.com/products/category/${catigeor}`);
+    const cateitem = await categeriresponse.json();
+
+    apppandwork(cateitem, 5, res);
+    catecont.style.display = "none";
+
+}
+
+function apppandwork(item, num, appcon) {
+    let count = 0; 
+    for (const element of item.products) {
         const prodimg = element.thumbnail;
         const prodtitle = element.title;
         const productdisc = element.description;
         const productprice = element.price;
         const waranty = element.warrantyInformation;
-        const reating = element.rating;
-        console.log(reating);
-        
+
 
         const card = document.createElement("div");
         const prodpdiv = document.createElement("div");
@@ -33,41 +74,34 @@ async function homepage() {
 
         const add = document.createElement("button");
         add.innerHTML = "🛒";
-        
+
         card.className = "productcard";
         prodpdiv.className = "cart"
 
         prodthum.src = prodimg;
         producttitle.innerHTML = prodtitle;
         description.innerHTML = productdisc;
-        prodpdiv.innerHTML = productprice;
+        prodpdiv.innerHTML = `$${productprice}`;
         prodwaranty.innerHTML = `waranty: ${waranty}`;
         rating.innerHTML = "☆".repeat(element.rating);
-        
+
         prodpdiv.append(rating, add);
         card.append(prodthum, producttitle, description, prodpdiv, prodwaranty);
-        prod.appendChild(card);
-
+        appcon.appendChild(card); 
+        addtocart(add)
         count++
-        if (count >= 10) break;
+        if (count >= num) break;
     }
-    // categorie();
+   
 
 }
 
-// async function categorie() {
-//     const categories = ["beauty","furniture","groceries","home-decoration","laptops","mens-shoes"];
-    
-    
-    
-    
-//     for(i = 0; i <6 ; i++) {
-//         const template = document.querySelector(".categerise-template").content.cloneNode(true);
-//         const img = document.querySelector(".cateimg");
-//         const categerisetitle = document.querySelector(".catetitle");
+let counter = 0;
 
-//         console.log(template);
-//         categerisetitle.innerHTML = categories[i];
-
-//     }
-// }
+function addtocart(item) {
+    item.addEventListener("click", () => {
+        counter++;
+        cartitem.textContent = ""
+        cartitem.textContent = `:- ${counter}`;
+    })
+}

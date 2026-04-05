@@ -19,7 +19,7 @@
             <ul class="main-list">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><button class="cart-btn" type="button">Cart</button></li>
+                <li><button class="cart-btn" type="button">Cart<span id="cart-count"></span></button></li>
                 <li><a href="login.html">Login/SingUp</a></li>
             </ul>
         </nav>
@@ -38,54 +38,77 @@
 
     <main class="index-main">
         <section class="hero">
+            <img src="assets/header.png" alt="Image 1" width="100%">
             <h2>Welcome to Our E-Commerce Store</h2>
-            <img src="assets/producthearder.png" alt="Image 1" width="100%">
         </section>
 
         <div class="lod-products"></div>
 
         <section class="categories">
-            <h3>Categories</h3>
+            <span id="back-button"></span>
+            <h3 id="categorieshed">Categories</h3>
             <div class="categerise-container">
                 <div class="categerise-card">
                     <img class="cateimg" src="assets/beauty.png" alt="Image 1" width="25%">
-                    <div class="data">
-                        <h4 class="catetitle">Beauty Products</h4>
-                        <p class="categri">Glow Better, Feel Better</p>
+                    <div id="beauty" class="data">
+                        <span>
+                            <h4 class="catetitle">Beauty Products</h4>
+                            <p class="categri">Glow Better, Feel Better</p>
+                        </span>
+                        <button class="view-btn1" type="button"><strong>Explore More >></strong></button>
                     </div>
-                    <button class="view-btn" type="button"><strong>Explore More</strong></button>
+
                 </div>
                 <div class="categerise-card">
                     <img class="cateimg" src="assets/furniture.png" alt="Image 1" width="25%">
-                    <div class="data">
-                        <h4 class="catetitle">Furniture</h4>
-                        <p class="categri">Design Your Comfort</p>
+                    <div id="furniture" class="data">
+                        <span>
+                            <h4 class="catetitle">Furniture</h4>
+                            <p class="categri">Design Your Comfort</p>
+                        </span>
+                        <button class="view-btn2" type="button"><strong>Explore More >></strong></button>
                     </div>
-                    <button class="view-btn" type="button"><strong>Explore More</strong></button>
+
                 </div>
                 <div class="categerise-card">
                     <img class="cateimg"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3FwUaAqIuIUDRSuAS9PptEY6ItacnyublWA&s"
+                        src="https://cdn.pixabay.com/photo/2024/03/26/11/57/supermarket-8656652_1280.jpg"
                         alt="Image 1" width="25%">
-                    <div class="data">
-                        <h4 class="catetitle">Electronics</h4>
-                        <p class="categri">Stay Connected</p>
+                    <div id="groceries" class="data">
+                        <span>
+                            <h4 class="catetitle">Groceries</h4>
+                            <p class="categri">Fresh & Healthy</p>
+                        </span>
+                        <button class="view-btn3" type="button"><strong>Explore More >></strong></button>
                     </div>
-                    <button class="view-btn" type="button"><strong>Explore More</strong></button>
+
                 </div>
                 <div class="categerise-card">
-                    <img class="cateimg"
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0EcuplWCQDDbNXXSEnghEDvxBwte4QbmSjA&s"
-                        alt="Image 1" width="25%">
-                    <div class="data">
-                        <h4 class="catetitle">Fashion</h4>
-                        <p class="categri">Step Into Style</p>
+                    <img class="cateimg" src="assets/mobile.png" alt="Image 1" width="25%">
+                    <div id="smartphones" class="data">
+                        <span>
+                            <h4 class="catetitle">Smartphones</h4>
+                            <p class="categri">Stay Connected</p>
+                        </span>
+                        <button class="view-btn4" type="button"><strong>Explore More >></strong></button>
                     </div>
-                    <button class="view-btn" type="button"><strong>Explore More</strong></button>
+
                 </div>
             </div>
+            <div class="categri-res"></div>
 
+        </section>
 
+        <section class="newsletter">
+            <div class="newsletter-container">
+                <h2>Stay Updated 🚀</h2>
+                <p>Subscribe to get the latest updates, offers, and products news.</p>
+
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button id="subcsrition" type="submit">Subscribe</button>
+                </form>
+            </div>
         </section>
 
     </main>

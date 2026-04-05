@@ -5,7 +5,7 @@
 }
 
 .navbar {
-  width: 100vw;
+  width: 100%;
   height: 70px;
   position: relative;
   top: 0;
@@ -55,7 +55,7 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 20px;
   font-weight: 400;
-} 
+}
 
 .main-list a {
   text-decoration: none;
@@ -75,7 +75,6 @@
 
 .navbar input {
   padding: 10px 10px 10px 40px;
-  /* space for icon */
   border: none;
   border-radius: 20px;
   background-color: #f1f1f1;
@@ -137,7 +136,7 @@
 
 .hero {
   display: grid;
- margin-top: 10px; 
+  margin-top: 10px;
 }
 
 .hero h2 {
@@ -147,8 +146,7 @@
   align-items: center;
   z-index: +5;
   overflow-y: scroll;
-  grid-column: 1/2;
-  grid-row: 1/2;
+  grid-area: 1/1;
 
 }
 
@@ -156,8 +154,8 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
-  grid-column: 1/2;
-  grid-row: 1/2;
+  grid-area: 1/1;
+  z-index: -1;
 }
 
 .lod-products {
@@ -166,10 +164,10 @@
   gap: 1rem;
 }
 
-.productcard{
+.productcard {
   display: flex;
   flex-direction: column;
-  background-color: #fff;  
+  background-color: #fff;
   gap: 15px;
   border-radius: 8px;
   padding: 1em;
@@ -214,9 +212,9 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
-  /* gap: 2rem; */
+  gap: 2rem;
   background-color: #f1f1f1;
-  margin: 0 15px;
+  margin: 20px 25px;
   border-radius: 10px;
 }
 
@@ -224,50 +222,138 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  padding: 70px;
+  gap: 1.5rem;
+  padding: 60px;
 }
 
 .categerise-card {
   display: grid;
-  grid-template-rows: 1/2;
-  grid-template-columns: 1/2;
 }
+
 .data {
-  grid-row: 1/2;
-  grid-column: 1/2;
-  text-align: center;
-  /* display: flex;
+  grid-area: 1/1;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px; */
+  gap: 10px;
+  font-size: larger;
+  font-weight: 700;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color: #0990f16c;
+
+}
+
+.data button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .categerise-container img {
+  grid-area: 1/1;
   width: 100%;
   height: auto;
   border-radius: 8px;
 }
 
-.hero:hover {
+.categri-res {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.newsletter {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.newsletter-container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.newsletter h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.newsletter p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 8px;
+  width: 250px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.newsletter-form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #111827;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.categerise-card:hover {
   transform: scale(1.05);
   transition: 500ms;
-  border: 2px solid #8297b7;
-  box-shadow: 
+  border: 2px solid #3b82f6;
+  border-radius: 8px;
+  box-shadow:
     2px 2px 4px #1e3a8a,
     -2px -2px 4px #60a5fa,
-    3px 3px 6px #000000;;
+    3px 3px 6px #000000;
+}
+
+.newsletter-form button:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+}
+
+.hero:hover {
+  transition: 500ms;
+  border: 2px solid #8297b7;
+  box-shadow:
+    2px 2px 4px #1e3a8a,
+    -2px -2px 4px #60a5fa,
+    3px 3px 6px #000000;
+  ;
 }
 
 .productcard:hover {
   transform: scale(1.05);
   transition: 500ms;
   border: 2px solid #3b82f6;
-  box-shadow: 
+  box-shadow:
     2px 2px 4px #1e3a8a,
     -2px -2px 4px #60a5fa,
-    3px 3px 6px #000000;;
+    3px 3px 6px #000000;
+  ;
 }
 
 .cart button:hover {
@@ -282,7 +368,8 @@
 }
 
 .navbar a:hover,
-h1:hover, button:hover {
+h1:hover,
+button:hover {
   transition: 500ms;
   transform: scale(1.1);
   color: #0F172A;
@@ -327,4 +414,16 @@ h1:hover, button:hover {
   .hero h2 {
     font-size: 1em;
   }
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .newsletter-form button {
+    width: 100%;
+  }
+
 }
