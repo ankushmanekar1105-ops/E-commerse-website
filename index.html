@@ -24,7 +24,7 @@
             </ul>
         </nav>
 
-        <div class="lesst750"></div>
+        <!-- <div class="lesst750"></div> -->
 
         <template class="nav-template">
             <ul class="second-main-list">
@@ -55,7 +55,7 @@
                             <h4 class="catetitle">Beauty Products</h4>
                             <p class="categri">Glow Better, Feel Better</p>
                         </span>
-                        <button class="view-btn1" type="button"><strong>Explore More >></strong></button>
+                        <button class="view-btn" type="button"><strong class="beauty">Explore More >></strong></button>
                     </div>
 
                 </div>
@@ -66,20 +66,22 @@
                             <h4 class="catetitle">Furniture</h4>
                             <p class="categri">Design Your Comfort</p>
                         </span>
-                        <button class="view-btn2" type="button"><strong>Explore More >></strong></button>
+                        <button class="view-btn" type="button"><strong class="furniture">Explore
+                                More>></strong></button>
                     </div>
 
                 </div>
                 <div class="categerise-card">
                     <img class="cateimg"
-                        src="https://cdn.pixabay.com/photo/2024/03/26/11/57/supermarket-8656652_1280.jpg"
-                        alt="Image 1" width="25%">
+                        src="https://cdn.pixabay.com/photo/2024/03/26/11/57/supermarket-8656652_1280.jpg" alt="Image 1"
+                        width="25%">
                     <div id="groceries" class="data">
                         <span>
                             <h4 class="catetitle">Groceries</h4>
                             <p class="categri">Fresh & Healthy</p>
                         </span>
-                        <button class="view-btn3" type="button"><strong>Explore More >></strong></button>
+                        <button class="view-btn" type="button"><strong class="groceries">Explore More
+                                >></strong></button>
                     </div>
 
                 </div>
@@ -90,7 +92,8 @@
                             <h4 class="catetitle">Smartphones</h4>
                             <p class="categri">Stay Connected</p>
                         </span>
-                        <button class="view-btn4" type="button"><strong>Explore More >></strong></button>
+                        <button class="view-btn" type="button"><strong class="smartphones">Explore More
+                                >></strong></button>
                     </div>
 
                 </div>
@@ -99,6 +102,13 @@
 
         </section>
 
+
+
+    </main>
+
+    <footers class="footer">
+        <img src="https://cdn-icons-png.flaticon.com/512/4196/4196777.png" alt="top scroll" class="top-scroll"
+            id="top-scroll" width="50px">
         <section class="newsletter">
             <div class="newsletter-container">
                 <h2>Stay Updated 🚀</h2>
@@ -111,11 +121,54 @@
             </div>
         </section>
 
-    </main>
+        <section class="footer-container">
+            <div>
+            <span class="dm">Dark Mode</span>
+            <div class="dark-mode-toggle">
 
-    <footers class="footer">
-        <p>&copy; 2024 E-Commerce Website. All rights reserved.</p>
+                <label for="checkbox">.
+                    <input class="checkbox" type="checkbox" id="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+            <div class="footer-section">
+                <h2 class="logo">YourBrand</h2>
+                <p>Your one-stop shop for all your needs. Quality products at the best prices.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><button class="cart-btn" type="button">Cart<span id="cart-count"></span></button></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Categories</h3>
+                <ul>
+                    <li><button class="view-btn" type="button"><span class="beauty">Beauty</span></button></li>
+                    <li> <button class="view-btn" type="button"><span class="furniture">Furniture</span></button></li>
+                    <li><button class="view-btn" type="button"><span class="furniture">Groceries</span></button></li>
+                    <li><button class="view-btn" type="button"><span class="furniture">Smartphones</span></button></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
 
+        </section>
+
+        <div class="footer-bottom">
+            <p>© 2026 YourBrand. All rights reserved.</p>
+        </div>
         </footer>
 
 </body>

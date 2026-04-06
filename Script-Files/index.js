@@ -5,6 +5,9 @@ const res = document.querySelector(".categri-res");
 const catecont = document.querySelector(".categerise-container");
 const back = document.querySelector("#back-button");
 const cartitem = document.querySelector("#cart-count");
+const explore = document.querySelectorAll(".view-btn");
+const scrollup = document.querySelector(".top-scroll");
+const toggle = document.querySelector(".checkbox");
 
 const URL = "https://dummyjson.com/products";
 
@@ -13,7 +16,8 @@ let isclick = false;
 document.addEventListener("DOMContentLoaded", homepage);
 catecont.addEventListener("click", (e) => {
 
-    const target = e.target.id
+    const target = e.target.id;
+    if (target === "") return;
     catagirihed.textContent = `Category: ${target}`
     back.textContent = "Back";
     back.style.display = "block";
@@ -55,7 +59,7 @@ async function catagerise(catigeor) {
 }
 
 function apppandwork(item, num, appcon) {
-    let count = 0; 
+    let count = 0;
     for (const element of item.products) {
         const prodimg = element.thumbnail;
         const prodtitle = element.title;
@@ -72,6 +76,10 @@ function apppandwork(item, num, appcon) {
         const prodthum = document.createElement("img");
         const rating = document.createElement("p");
 
+        const buy = document.createElement("button");
+
+        GamepadButton, textContent = "Buy Now";
+
         const add = document.createElement("button");
         add.innerHTML = "🛒";
 
@@ -87,13 +95,11 @@ function apppandwork(item, num, appcon) {
 
         prodpdiv.append(rating, add);
         card.append(prodthum, producttitle, description, prodpdiv, prodwaranty);
-        appcon.appendChild(card); 
+        appcon.appendChild(card);
         addtocart(add)
         count++
         if (count >= num) break;
     }
-   
-
 }
 
 let counter = 0;
@@ -102,6 +108,32 @@ function addtocart(item) {
     item.addEventListener("click", () => {
         counter++;
         cartitem.textContent = ""
-        cartitem.textContent = `:- ${counter}`;
+        cartitem.textContent = `  ${counter}`;
+        cartitem.style.display = "inline"
     })
 }
+
+for (const item of explore) {
+    item.addEventListener("click", (e) => {
+        const target = e.target.className;
+    if (target === "") return;
+    catagirihed.textContent = `Category: ${target}`
+    back.textContent = "Back";
+    back.style.display = "block";
+    isclick = true;
+
+    catecont.style.display = "none";
+    res.style.display = "grid";
+    res.innerHTML = "";
+    catagerise(target);
+
+    })
+}
+
+scrollup.addEventListener("click", (e) => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+})
+
+toggle.addEventListener("click", () => {
+    document.body.style.backgroundColor = toggle.checked ? "black" : "rgb(208, 227, 243)";
+})
