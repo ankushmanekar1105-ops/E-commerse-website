@@ -6,8 +6,6 @@ const catecont = document.querySelector(".categerise-container");
 const back = document.querySelector("#back-button");
 const cartitem = document.querySelector("#cart-count");
 const explore = document.querySelectorAll(".view-btn");
-const scrollup = document.querySelector(".top-scroll");
-const toggle = document.querySelector(".checkbox");
 
 const URL = "https://dummyjson.com/products";
 
@@ -15,7 +13,7 @@ let isclick = false;
 
 document.addEventListener("DOMContentLoaded", homepage);
 catecont.addEventListener("click", (e) => {
-
+    
     const target = e.target.id;
     if (target === "") return;
     catagirihed.textContent = `Category: ${target}`
@@ -41,7 +39,6 @@ back.addEventListener("click", () => {
 });
 
 async function homepage() {
-
     const respose = await fetch(URL);
     const item = await respose.json();
 
@@ -129,11 +126,3 @@ for (const item of explore) {
 
     })
 }
-
-scrollup.addEventListener("click", (e) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-})
-
-toggle.addEventListener("click", () => {
-    document.body.style.backgroundColor = toggle.checked ? "black" : "rgb(208, 227, 243)";
-})

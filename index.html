@@ -5,35 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce Website</title>
+    <link rel="stylesheet" href="../Style-Files/style.css">
     <link rel="stylesheet" href="../Style-Files/Index.css">
 </head>
 
 <body>
     <header>
-        <nav class="navbar">
-            <div class="toggle">
-                <h1>Shop List</h1>
-                <button class="toggle-btn" type="button">☰</button>
-            </div>
-            <input id="search" type="text" placeholder="search">
-            <ul class="main-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><button class="cart-btn" type="button">Cart<span id="cart-count"></span></button></li>
-                <li><a href="login.html">Login/SingUp</a></li>
-            </ul>
-        </nav>
-
-        <!-- <div class="lesst750"></div> -->
-
-        <template class="nav-template">
-            <ul class="second-main-list">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="products.html">Products</a></li>
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="login.html">Login/SingUp</a></li>
-            </ul>
-        </template>
+        <div class="addnav"></div>
     </header>
 
     <main class="index-main">
@@ -106,72 +84,10 @@
 
     </main>
 
-    <footers class="footer">
-        <img src="https://cdn-icons-png.flaticon.com/512/4196/4196777.png" alt="top scroll" class="top-scroll"
-            id="top-scroll" width="50px">
-        <section class="newsletter">
-            <div class="newsletter-container">
-                <h2>Stay Updated 🚀</h2>
-                <p>Subscribe to get the latest updates, offers, and products news.</p>
-
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email" required>
-                    <button id="subcsrition" type="submit">Subscribe</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="footer-container">
-            <div>
-            <span class="dm">Dark Mode</span>
-            <div class="dark-mode-toggle">
-
-                <label for="checkbox">.
-                    <input class="checkbox" type="checkbox" id="checkbox">
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </div>
-            <div class="footer-section">
-                <h2 class="logo">YourBrand</h2>
-                <p>Your one-stop shop for all your needs. Quality products at the best prices.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><button class="cart-btn" type="button">Cart<span id="cart-count"></span></button></li>
-                    <li><a href="login.html">Login</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Categories</h3>
-                <ul>
-                    <li><button class="view-btn" type="button"><span class="beauty">Beauty</span></button></li>
-                    <li> <button class="view-btn" type="button"><span class="furniture">Furniture</span></button></li>
-                    <li><button class="view-btn" type="button"><span class="furniture">Groceries</span></button></li>
-                    <li><button class="view-btn" type="button"><span class="furniture">Smartphones</span></button></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Support</h3>
-                <ul>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">FAQs</a></li>
-                    <li><a href="#">Returns</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </div>
-
-        </section>
-
-        <div class="footer-bottom">
-            <p>© 2026 YourBrand. All rights reserved.</p>
-        </div>
-        </footer>
+    <footers class="footer"></footer>
 
 </body>
 <script src="Script-Files/index.js"></script>
+<script src="Script-Files/Common.js"></script>
 
 </html>

@@ -2,14 +2,73 @@ const input = document.querySelector("#search");
 const product = document.querySelector("#products");
 const main = document.querySelector(".main-div");
 const footer = document.querySelector(".footer");
-product.style.color = "white";
 
-// const toggle = document.querySelector(".checkbox");
 
-// toggle.addEventListener("click", () => {
-//     document.body.style.backgroundColor = toggle.checked ? "black" : "rgb(208, 227, 243)";
-//     document.body.style.color = toggle.checked ? "white" : "black";
-// })
+
+// product.style.Color = "white";
+
+
+async function lodenev() {
+    try {
+        const res = await fetch("Components/nav.html")
+        const data = await res.text();
+ 
+        document.querySelector(".addnav").innerHTML = data;
+
+        const togglenav = document.querySelector(".toggle-btn");
+        const secnav = document.querySelector(".lesst750");
+
+        if(togglenav){
+            togglenav.addEventListener("click", (e) => {
+                const secnavtemp = document.querySelector(".nav-template");
+                if (secnav.childElementCount === 0) {
+                    const navclone = secnavtemp.content.cloneNode(true);
+                    secnav.appendChild(navclone);
+
+                }  
+                else {
+                    secnav.innerHTML = "";
+                }
+            })
+        window.addEventListener("resize",hendelnev);
+
+        function hendelnev(e)  {
+                if (window.innerWidth >= 750) {
+                    secnav.style.display = "none";
+                }
+                else {
+                    secnav.style.display = "block"
+                }
+        }}
+
+    } catch (error) {
+        console.log("datac not fount!");   
+    }
+}
+
+async function addfooter() {
+    try {
+        const res = await fetch("Components/Footer.html");
+        const data = await res.text();
+        document.querySelector(".footer").innerHTML = data;
+        const toggle = document.querySelector(".checkbox");
+
+        toggle.addEventListener("click", () => {
+            document.body.style.backgroundColor = toggle.checked ? "black" : "rgb(228, 228, 228)";
+            // catagirise.style.backgroundColor = toggle.checked ? "#0F172A" : "rgb(252, 254, 255)";
+        })
+        const scrollup = document.querySelector(".top-scroll");
+        scrollup.addEventListener("click", (e) => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        })
+    } catch (error) {
+        console.log("data not found!");
+        
+    }
+}
+
+lodenev();
+addfooter();
 
 let timer;
 let savedata;

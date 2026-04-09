@@ -285,7 +285,6 @@ form button:hover {
   .toggle-btn {
     display: block;
   }
-
 }
 
 @media (max-width: 480px) {

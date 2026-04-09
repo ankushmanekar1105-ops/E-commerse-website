@@ -23,8 +23,6 @@ const logbutt = document.querySelector("#login");
 
 const result = document.querySelector("#result");
 
-
-
 const logEmail = document.querySelector("#email-add input");
 const logPass = document.querySelector("#password input");
 

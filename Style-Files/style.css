@@ -1,7 +1,9 @@
-/* * {
+* {
   margin: 0;
   padding: 0;
   border: none;
+  box-sizing: border-box;
+
 }
 
 .navbar {
@@ -332,4 +334,4 @@ h1:hover {
     font-size: medium;
   }
 
-} */
+}
