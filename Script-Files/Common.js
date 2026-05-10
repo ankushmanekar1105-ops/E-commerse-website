@@ -1,48 +1,45 @@
-const input = document.querySelector("#search");
-const product = document.querySelector("#products");
 const main = document.querySelector(".main-div");
 const footer = document.querySelector(".footer");
-
-
-
-// product.style.Color = "white";
-
+const cate = document.querySelector(".categories");
 
 async function lodenev() {
     try {
         const res = await fetch("Components/nav.html")
         const data = await res.text();
- 
+
         document.querySelector(".addnav").innerHTML = data;
 
         const togglenav = document.querySelector(".toggle-btn");
         const secnav = document.querySelector(".lesst750");
+        const input = document.querySelector("#search");
+        const product = document.querySelector(".lod-products");
 
-        if(togglenav){
+        if (togglenav) {
             togglenav.addEventListener("click", (e) => {
                 const secnavtemp = document.querySelector(".nav-template");
                 if (secnav.childElementCount === 0) {
                     const navclone = secnavtemp.content.cloneNode(true);
                     secnav.appendChild(navclone);
 
-                }  
+                }
                 else {
                     secnav.innerHTML = "";
                 }
             })
-        window.addEventListener("resize",hendelnev);
+            window.addEventListener("resize", hendelnev);
 
-        function hendelnev(e)  {
-                if (window.innerWidth >= 750) {
+            function hendelnev(e) {
+                if (window.innerWidth >= 775) {
                     secnav.style.display = "none";
                 }
                 else {
                     secnav.style.display = "block"
                 }
-        }}
+            }
+        }
 
     } catch (error) {
-        console.log("datac not fount!");   
+        console.log("data not fount!");
     }
 }
 
@@ -59,129 +56,92 @@ async function addfooter() {
         })
         const scrollup = document.querySelector(".top-scroll");
         scrollup.addEventListener("click", (e) => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         })
     } catch (error) {
         console.log("data not found!");
-        
+
     }
 }
 
 lodenev();
 addfooter();
 
-let timer;
-let savedata;
+function apppandwork(item, num, appcon) {
+    let count = 0;
+    for (const element of item.products) {
+        if (element === "") return;
+        const prodimg = element.thumbnail;
+        const prodtitle = element.title;
+        const productdisc = element.description;
+        const productprice = element.price;
+        const waranty = element.warrantyInformation;
 
-input.addEventListener("input", () => {
-    
-    clearTimeout(timer);
-    timer = setTimeout(search, 300);
-})
 
-async function search() {
-    main.style.display = "none";
-    footer.style.display = "none"
-    const intval = input.value.trim();
-    if (intval === "") {
-        product.textContent = ""
-        return;
+        const card = document.createElement("div");
+        const prodpdiv = document.createElement("div");
+        const producttitle = document.createElement("h3");
+        const description = document.createElement("p");
+        const prodwaranty = document.createElement("p");
+        const prodthum = document.createElement("img");
+        const rating = document.createElement("p");
+
+        const buy = document.createElement("button");
+        buy.innerHTML = "Buy Now";
+
+        const add = document.createElement("button");
+        add.innerHTML = "🛒";
+
+        card.className = "productcard";
+        prodpdiv.className = "cart";
+
+        prodthum.src = prodimg;
+        producttitle.innerHTML = prodtitle;
+        description.innerHTML = productdisc;
+        prodpdiv.innerHTML = `$${productprice}`;
+        prodwaranty.innerHTML = `waranty: ${waranty}`;
+        rating.innerHTML = `${"☆".repeat(Math.floor(element.rating))} (${element.rating})`;
+        
+        add.addEventListener("click", () => addtocart(element));
+
+        prodpdiv.append(rating, add);
+        card.append(prodthum, producttitle, description, prodpdiv, buy, prodwaranty);
+        appcon.appendChild(card);
+        // addtocart(add);
+        // console.log(element);
+       
+        count++
+        if (count >= num) break;
     }
+}
 
-    result.textContent = "Loading ...";
+async function catagerise(catigeor, append) {
+    const categeriresponse = await fetch(`https://dummyjson.com/products/category/${catigeor}`);
+    const cateitem = await categeriresponse.json();
+    append.textContent = "";
 
-    try {
-        const URL = `https://dummyjson.com/products/search?q=${intval}`;
-        const response = await fetch(URL);
-        if (!response.ok) {
-            product.textContent = "";
-            product.textContent = "Product not found";
-            return;
-        }
-        const data = await response.json();
-        const item = data.items;
-
-        savedata = item;
-
-        restoredata(savedata);
-
-
-    } catch (error) {
-        product.textContent = "";
-        product.textContent = "Server error ⚠️";
-    }
+    apppandwork(cateitem, 5, append);
+    // catecont.style.display = "none";
 
 }
 
-function restoredata(data) {
-    product.innerHTML = "";
-    // let count = 0;
-    for (const element of data) {
-        const thumbnail = element.thumbnail;
-        const title = element.title;
-        const disc = element.description;
-        const card = document.createElement("div");
-        const img = document.createElement("img");
-        const hed = document.createElement("h2");
-        const para =document.createElement("p");
-        para.textContent = disc;
-        card.className = "card"
-        img.src = thumbnail;
-        img.alt = title;
-        img.style.margin = "15px 0";
-        img.style.width = "200px";
-        hed.textContent = `Title: ${title}`;
-        card.append(img, hed, para);
-        product.appendChild(card);
+let counter = 0;
 
-        card.addEventListener("click", async () => {
-            const url = `https://dummyjson.com/products/${product}`
-            product.textContent = "Loading ...";
-            try {
-                const secresponse = await fetch(url);
-                if (!secresponse.ok) {
-                    product.innerHTML = "";
-                    product.textContent = "User not found";
-                    return;
-                }
-                const secdata = await secresponse.json();
-                const pubrepo = secdata.public_repos;
-                const Followers = secdata.followers;
-                const Following = secdata.following;
-                product.innerHTML = "";
-                const back = document.createElement("button");
-                const card = document.createElement("div");
-                const img = document.createElement("img");
-                card.className = "profile"
-                img.src = secdata.avatar_url;
-                img.alt = username;
-                img.style.width = "400px";
-                back.textContent = "Back";
-                back.style.margin = "20px 0"
-                card.style.cursor = "pointer";
-                const hed = document.createElement("h3");
-                const hed1 = document.createElement("h3");
-                const hed2 = document.createElement("h3");
-                const hed3 = document.createElement("h3");
+function addtocart(item) {
 
-                hed.textContent = `username: ${secdata.login}`;
-                hed1.textContent = `public_repos: ${pubrepo}`;
-                hed2.textContent = `Followers: ${Followers}`;
-                hed3.textContent = `Following: ${Following}`;
+    let cart = JSON.parse(localStorage.getItem("mycart")) || [];
+    console.log(cart);
+    // localStorage.clear();
 
-                card.append(back, img, hed, hed1, hed2, hed3);
-                product.appendChild(card);
-                back.addEventListener("click", () => {
-                    setTimeout(restoredata(savedata), 100);
-                });
-            } catch (error) {
-                product.innerHTML = "";
-                product.textContent = "error";
-            }
+    const exist = cart.find(e => e.id === item.id);
 
-        })
-
-        count++;
-        if (count >= 20) break;
+    if (exist) {
+        exist.Quantity++;
+    } else {
+        cart.push({ ...item, Quantity: 1 });
     }
+
+    localStorage.setItem("mycart", JSON.stringify(cart));
+    console.log(cart);
+    
 }

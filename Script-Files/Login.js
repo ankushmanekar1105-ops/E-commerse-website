@@ -64,7 +64,7 @@ const singcompletion = (e) => {
     e.preventDefault();
     const newPass = document.querySelector("#New-Password")?.value.trim();
     const comPass = document.querySelector("#check-Password")?.value.trim();
-    const singEmail = document.querySelector("#email")?.value.trim();
+    const singEmail = document.querySelector("#email")?.value;
 
     if (!singEmail || !newPass || !comPass) {
         result.textContent = "Fill all fields";
@@ -80,6 +80,7 @@ const singcompletion = (e) => {
         result.textContent = "Passwords do not match";
         return;
     }
+    
 
     result.textContent = "Signup completed ✅";
 }
@@ -90,15 +91,15 @@ document.addEventListener("click", (e) => {
     }
 });
 
-const toggle = document.querySelector(".toggle-btn");
-const secnav = document.querySelector(".lesst750")
+// const toggle = document.querySelector(".toggle-btn");
+// const secnav = document.querySelector(".lesst750")
 
-toggle.addEventListener("click", (e) => {
-    const secnavtemp = document.querySelector(".nav-template");
-    if (secnav.childElementCount === 0) {
-        const navclone = secnavtemp.content.cloneNode(true);
-        secnav.appendChild(navclone);
-    } else {
-        secnav.innerHTML = "";
-    }
-})
+// toggle.addEventListener("click", (e) => {
+//     const secnavtemp = document.querySelector(".nav-template");
+//     if (secnav.childElementCount === 0) {
+//         const navclone = secnavtemp.content.cloneNode(true);
+//         secnav.appendChild(navclone);
+//     } else {
+//         secnav.innerHTML = "";
+//     }
+// })

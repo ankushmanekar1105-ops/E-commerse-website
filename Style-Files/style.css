@@ -52,7 +52,7 @@
   color: black;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding: 20px;
-  font-size: large;
+  font-size: x-large;
   font-weight: 400;
 }
 
@@ -114,6 +114,63 @@
   padding: 20px;
   font-size: large;
   font-weight: 400;
+}
+
+/* .left-sidebar {
+  width: 200px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+  grid-area: 1/2;
+} */
+
+.lod-products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.productcard {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  gap: 15px;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 20px 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.productcard img {
+  width: 75%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.productcard h3 {
+  font-size: 1.2em;
+  color: #0F172A;
+  align-items: center;
+  width: 100%;
+}
+
+.cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart button {
+  background-color: #fff;
+  border: none;
+  color: #0F172A;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .newsletter {
@@ -269,9 +326,7 @@ input:checked+.slider:before {
   margin-bottom: 5px;
 }
 
-.footer-section button:hover {
-  color: #3b82f6;
-}
+
 
 #cart-count {
   margin-left: 5px;
@@ -296,7 +351,8 @@ input:checked+.slider:before {
 }
 
 .navbar a:hover,
-h1:hover {
+h1:hover,
+button:hover {
   transition: 500ms;
   transform: scale(1.1);
   color: #0F172A;
@@ -310,6 +366,27 @@ h1:hover {
   transition: 600ms;
   transform: scale(1.1);
   border: 3px solid #CBD5E1;
+}
+
+.productcard:hover {
+  transform: scale(1.05);
+  transition: 500ms;
+  border: 2px solid #3b82f6;
+  box-shadow:
+    2px 2px 4px #1e3a8a,
+    -2px -2px 4px #60a5fa,
+    3px 3px 6px #000000;
+  ;
+}
+
+.cart button:hover {
+  background-color: #3b82f6;
+  color: #fff;
+  transition: 300ms;
+}
+
+.footer-section button:hover {
+  color: #3b82f6;
 }
 
 @media (max-width: 775px) {
@@ -332,6 +409,10 @@ h1:hover {
   .second-main-list a {
     padding: 10px;
     font-size: medium;
+  }
+  #search{
+    width: 100%;
+    margin-top: 10px;
   }
 
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,19 +8,94 @@
     <link rel="stylesheet" href="../Style-Files/style.css">
     <link rel="stylesheet" href="../Style-Files/Products.css">
 </head>
+
 <body>
-   <header>
+    <header>
         <div class="addnav"></div>
     </header>
 
     <main>
-        <h2>Products</h2>
-        <p>Welcome to our products page!</p>
-        <div class="products"></div>
+        <div class="lod-products"></div>
+        <div class="filter-products"></div>
+        <!-- class="left-sidebar" -->
+        <div class="left-sidebar">
+            <div class="category">
+                    <h3>Category</h3>
+                <br>
+                <ul class="category-list">
+                    <template id="category-template">
+                        <input type="radio" name="category" id="template-input" value="">
+                        <span id="cate-name"></span>
+                        <br>
+                    </template>
+                </ul>
+                <span id="more-or-less">show more ⮟</span>
+            </div>
+            <br>
+
+            <div class="price-filter">
+                <label class="price-filter" for="price-range">
+                    <h3>Price</h3>
+                </label>
+                <br>
+                <input type="range" id="price-range" min="0" max="1000" step="10">
+                <br>
+                <span id="price-value">500 $</span>
+            </div>
+            <br>
+
+            <div class="rating-filter">
+                <h3><strong>Rating</strong></h3>
+                <br>
+                <div class="rating-options">
+                    <label class="rating-label" for="rating-range">Rating</label>
+                    <input type="radio" id="rating-range" name="rating" value="4">
+                    <span> above
+                        ★★★★</span>
+                    <br>
+                </div>
+                
+                <div class="rating-options">
+                    <label class="rating-label" for="rating-range-4">Rating</label>
+                    <input type="radio" id="rating-range-4" name="rating" value="3">
+                    <span> above
+                        ★★★</span>
+                    <br>
+                </div>
+                
+                <div class="rating-options">
+                    <label class="rating-label" for="rating-range-3">Rating</label>
+                    <input type="radio" id="rating-range-3" name="rating" value="2">
+                    <span> above
+                        ★★</span>
+                    <br>
+                </div>
+                <div class="rating-options">
+                    <label class="rating-label" for="rating-range-2">Rating</label>
+                    <input type="radio" id="rating-range-2" name="rating" value="1">
+                    <span> above
+                        ★</span>
+                    <br>
+                </div>
+                
+                <div class="rating-options">
+                    <label class="rating-label" for="rating-range-1">Rating</label>
+                    <input type="radio" id="rating-range-1" name="rating" value="0">
+                    <span> No Rating</span>
+                </div>
+                <!-- <span id="rating-value"></span> -->
+
+            </div>
+            <button type="button" id="submit">Apply</button>
+            <span id="alert"></span>
+        </div>
+
     </main>
 
     <footer class="footer"></footer>
 
 </body>
-<script src="Script-Files/Common.js" defer></script>
+<script src="Script-Files/product.js"></script>
+<script src="Script-Files/Common.js"></script>
+
 </html>
