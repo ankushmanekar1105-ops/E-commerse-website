@@ -2,7 +2,6 @@ const main = document.querySelector(".main-div");
 const footer = document.querySelector(".footer");
 const cate = document.querySelector(".categories");
 const htmlTag = document.querySelector("html");
-let toggle;
 
 async function lodenev() {
     try {
@@ -67,7 +66,7 @@ async function addfooter() {
         const res = await fetch("Components/Footer.html");
         const data = await res.text();
         document.querySelector(".footer").innerHTML = data;
-        toggle = document.querySelector(".checkbox");
+        const toggle = document.querySelector(".checkbox");
         const scroll = document.querySelector(".top-scroll");
 
         if (!localStorage.getItem("theme") || localStorage.getItem("theme") === "dark") {

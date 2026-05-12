@@ -35,8 +35,6 @@ async function rendersearch() {
 async function homepage() {
     const response = await fetch(url);
     const item = await response.json();
-    // console.log(priceinput);
-    // console.log(localStorage);
 
     productpage.innerHTML = "";
     const searchRendered = await rendersearch();
@@ -55,7 +53,6 @@ async function lodecategory(n) {
     ctg.textContent = "";
     let count = 0;
     for (const item of data) {
-        // console.log(item);
 
         ctgtemp = ctgfilter.content.cloneNode(true);
         ctgtemp.querySelector("#template-input").value = item.name;

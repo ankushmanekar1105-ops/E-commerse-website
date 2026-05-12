@@ -90,16 +90,3 @@ document.addEventListener("click", (e) => {
         singcompletion(e);
     }
 });
-
-// const toggle = document.querySelector(".toggle-btn");
-// const secnav = document.querySelector(".lesst750")
-
-// toggle.addEventListener("click", (e) => {
-//     const secnavtemp = document.querySelector(".nav-template");
-//     if (secnav.childElementCount === 0) {
-//         const navclone = secnavtemp.content.cloneNode(true);
-//         secnav.appendChild(navclone);
-//     } else {
-//         secnav.innerHTML = "";
-//     }
-// })
