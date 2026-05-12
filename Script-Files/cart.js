@@ -6,13 +6,10 @@ const heading = document.querySelector(".cart-heading");
 
 function getcart() {
 
-    console.log(JSON.parse(localStorage.getItem("mycart")) || []);
     return JSON.parse(localStorage.getItem("mycart")) || [];
-    // localStorage.clear();
 }
 
 function setcart(cart) {
-    // console.log(localStorage.setItem("mycart", JSON.stringify(cart)));
     localStorage.setItem("mycart", JSON.stringify(cart));
 }
 
@@ -30,7 +27,6 @@ function rendercart(params) {
     cartContainer.innerHTML = cart.map(item => {
 
         total += (item.price) * (item.Quantity);
-        console.log(item, item.price, item.Quantity, total.toFixed(2));
 
         return `
             <div class = "cart-item" >

@@ -1,6 +1,8 @@
 const main = document.querySelector(".main-div");
 const footer = document.querySelector(".footer");
 const cate = document.querySelector(".categories");
+const htmlTag = document.querySelector("html");
+let toggle;
 
 async function lodenev() {
     try {
@@ -13,6 +15,7 @@ async function lodenev() {
         const secnav = document.querySelector(".lesst750");
         const input = document.querySelector("#search");
         const product = document.querySelector(".lod-products");
+        const SearchInput = document.querySelector("#search");
 
         if (togglenav) {
             togglenav.addEventListener("click", (e) => {
@@ -38,21 +41,62 @@ async function lodenev() {
             }
         }
 
+        if (!SearchInput) return;
+        SearchInput.addEventListener("keypress", (e) => {
+            const SearchValue = SearchInput.value.trim();
+            if (e.key == "Enter") {
+                search(SearchValue);
+            }
+        })
+
     } catch (error) {
         console.log("data not fount!");
     }
 }
 
+function search(ser) {
+
+    let query = ser;
+    if (!query) return;
+    window.location.href = `products.html?search=${query}`;
+};
+
 async function addfooter() {
     try {
+        // let mode
         const res = await fetch("Components/Footer.html");
         const data = await res.text();
         document.querySelector(".footer").innerHTML = data;
-        const toggle = document.querySelector(".checkbox");
+        toggle = document.querySelector(".checkbox");
+        const scroll = document.querySelector(".top-scroll");
+
+        if (!localStorage.getItem("theme") || localStorage.getItem("theme") === "dark") {
+                localStorage.setItem("theme", "dark")
+                 htmlTag.style.backgroundColor = "white";
+                 htmlTag.style.color = "black";
+
+            }
+            else{
+                localStorage.setItem("theme", "light")
+                 htmlTag.style.backgroundColor = "black";
+                 htmlTag.style.color = "white";
+                scroll.style.backgroundColor = "white";
+
+            }
 
         toggle.addEventListener("click", () => {
-            document.body.style.backgroundColor = toggle.checked ? "black" : "rgb(228, 228, 228)";
-            // catagirise.style.backgroundColor = toggle.checked ? "#0F172A" : "rgb(252, 254, 255)";
+            if (!localStorage.getItem("theme") || localStorage.getItem("theme") === "dark") {
+                localStorage.setItem("theme", "light")
+                htmlTag.style.backgroundColor = "black";
+                scroll.style.backgroundColor = "white";
+                htmlTag.style.color = "white";
+            }
+            else{
+                localStorage.setItem("theme", "dark")
+                 htmlTag.style.backgroundColor = "white";
+                 htmlTag.style.color = "black";
+
+            }
         })
         const scrollup = document.querySelector(".top-scroll");
         scrollup.addEventListener("click", (e) => {
@@ -101,28 +145,27 @@ function apppandwork(item, num, appcon) {
         prodpdiv.innerHTML = `$${productprice}`;
         prodwaranty.innerHTML = `waranty: ${waranty}`;
         rating.innerHTML = `${"☆".repeat(Math.floor(element.rating))} (${element.rating})`;
-        
+
         add.addEventListener("click", () => addtocart(element));
 
         prodpdiv.append(rating, add);
         card.append(prodthum, producttitle, description, prodpdiv, buy, prodwaranty);
         appcon.appendChild(card);
-        // addtocart(add);
-        // console.log(element);
-       
+
         count++
         if (count >= num) break;
     }
+}
+
+function loop(item, num, appcon) {
+
 }
 
 async function catagerise(catigeor, append) {
     const categeriresponse = await fetch(`https://dummyjson.com/products/category/${catigeor}`);
     const cateitem = await categeriresponse.json();
     append.textContent = "";
-
     apppandwork(cateitem, 5, append);
-    // catecont.style.display = "none";
-
 }
 
 let counter = 0;
@@ -130,9 +173,6 @@ let counter = 0;
 function addtocart(item) {
 
     let cart = JSON.parse(localStorage.getItem("mycart")) || [];
-    console.log(cart);
-    // localStorage.clear();
-
     const exist = cart.find(e => e.id === item.id);
 
     if (exist) {
@@ -142,6 +182,4 @@ function addtocart(item) {
     }
 
     localStorage.setItem("mycart", JSON.stringify(cart));
-    console.log(cart);
-    
-}
+};

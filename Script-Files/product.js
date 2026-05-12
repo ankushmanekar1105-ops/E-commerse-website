@@ -1,11 +1,13 @@
 const productpage = document.querySelector(".lod-products");
 const url = "https://dummyjson.com/products";
+const maindiv = document.querySelector("main");
 
 const ctg = document.querySelector(".category-list");
 const catelist = document.querySelector(".categories");
 const ctgfilter = document.querySelector("#category-template");
 const apply = document.querySelector("#submit");
 const filterpro = document.querySelector(".filter-products");
+const sidebar = document.querySelector(".left-sidebar")
 
 const priceinput = document.querySelector("#price-range");
 const ctgprice = document.querySelector("#price-value");
@@ -15,14 +17,36 @@ let ctgtemp;
 
 document.addEventListener("DOMContentLoaded", homepage);
 
+async function rendersearch() {
+    const params = new URLSearchParams(window.location.search);
+    const search = params.get('search');
+
+    if (!search) {
+        return false;
+    }
+
+    const res = await fetch(`https://dummyjson.com/products/search?q=${encodeURIComponent(search)}`);
+    const data = await res.json();
+    history.replaceState(null, "", 'products.html');
+    apppandwork(data, 5, productpage);
+    return true;
+}
+
 async function homepage() {
-    const respose = await fetch(url);
-    const item = await respose.json();
-    console.log(priceinput);
+    const response = await fetch(url);
+    const item = await response.json();
+    // console.log(priceinput);
+    // console.log(localStorage);
+
+    productpage.innerHTML = "";
+    const searchRendered = await rendersearch();
 
     apply.addEventListener("click", () => filter(item));
-    document.addEventListener("DOMContentLoaded", lodecategory(4));
-    apppandwork(item, 10, productpage);
+    lodecategory(4);
+
+    if (!searchRendered) {
+        apppandwork(item, 10, productpage);
+    }
 }
 
 async function lodecategory(n) {
@@ -31,7 +55,7 @@ async function lodecategory(n) {
     ctg.textContent = "";
     let count = 0;
     for (const item of data) {
-        console.log(item);
+        // console.log(item);
 
         ctgtemp = ctgfilter.content.cloneNode(true);
         ctgtemp.querySelector("#template-input").value = item.name;
